@@ -444,7 +444,7 @@ while True: # change to while true in prod
 		print ("HEADING  %5.2f \33[1;37;40m tiltCompensatedHeading %5.2f" % (heading,tiltCompensatedHeading)),
 
 	if 1:			#Change to '0' to stop  showing the angles from the Kalman filter
-		sys.stdout.write("\rX angle: %5.2f Y angle: %5.2f Heading: %5.2f degrees, elbow angle: %5.2f, wrist rotation: %5.2f \r" % (kalmanX,kalmanY,tiltCompensatedHeading,elbow * (360.0 / 27000.0),wrist * (360.0 / 8000.0)),
+		sys.stdout.write("\rX angle: %5.2f Y angle: %5.2f Heading: %5.2f degrees, elbow angle: %5.2f, wrist rotation: %5.2f \r" % (kalmanX,kalmanY,tiltCompensatedHeading,elbow * (360.0 / 27000.0),wrist * (360.0 / 8000.0))),
 		sys.stdout.flush()
 
 	#print a new line
