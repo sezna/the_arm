@@ -294,7 +294,6 @@ def circumference_as_points(radius, center_x, center_y, z, sides=20):
 		xs.append(center_x + radius * math.cos ( 360 / angle ))
 		ys.append(center_y + radius * math.sin ( 360 / angle ))
 	return xs, ys
-zs = [0] * len(xs)
 
 xs = [0, 3, 20]
 ys = [0, 13, 20]
