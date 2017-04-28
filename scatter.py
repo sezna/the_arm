@@ -481,8 +481,10 @@ for i in range(0, 100): # change to while true in prod
 	forearm_pos_x = elbow_pos_x + (forearm_length * math.cos(45))
 	forearm_pos_y = elbow_pos_y + (forearm_length * math.sin(45))
 	
-	xs.append(elbow_pos_x, forearm_pos_x)
-	ys.append(elbow_pos_y, forearm_pos_y)
+	xs.append(elbow_pos_x)
+	xs.append(forearm_pos_x)
+	ys.append(elbow_pos_y)
+	ys.append(forearm_pos_y)
 
 
 #	pyplot.scatter(i, y)
