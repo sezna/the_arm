@@ -432,7 +432,7 @@ for i in range(0, 100): # change to while true in prod
 
 
 
-	if 1:			#Change to '0' to stop showing the angles from the accelerometer
+	if 0:			#Change to '0' to stop showing the angles from the accelerometer
 		print ("\033[1;34;40mACCX Angle %5.2f ACCY Angle %5.2f  \033[0m  " % (AccXangle, AccYangle)),
 
 	if 1:			#Change to '0' to stop  showing the angles from the gyro
@@ -441,7 +441,7 @@ for i in range(0, 100): # change to while true in prod
 	if 0:			#Change to '0' to stop  showing the angles from the complementary filter
 		print ("\033[1;35;40m   \tCFangleX Angle %5.2f \033[1;36;40m  CFangleY Angle %5.2f \33[1;32;40m" % (CFangleX,CFangleY)),
 
-	if 0:			#Change to '0' to stop  showing the heading
+	if 1:			#Change to '0' to stop  showing the heading
 		print ("HEADING  %5.2f \33[1;37;40m tiltCompensatedHeading %5.2f" % (heading,tiltCompensatedHeading)),
 
 	if 0:			#Change to '0' to stop  showing the angles from the Kalman filter
@@ -475,8 +475,8 @@ for i in range(0, 100): # change to while true in prod
 	ys = [0]
 	zs = [0]
 	
-	shoulder_theta_x = AccXangle
-	shoulder_theta_y = AccYangle
+	shoulder_theta_x = gyroXangle 
+	shoulder_theta_y = gyroYangle
 	elbow_theta    = elbow
 	wrist_theta    = wrist
 	elbow_pos_x, elbow_pos_y = bicep_length * math.cos(shoulder_theta_x), bicep_length * math.sin(shoulder_theta_y)
