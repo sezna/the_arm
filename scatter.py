@@ -470,9 +470,9 @@ for i in range(0, 100): # change to while true in prod
 	wrist_theta    = wrist
 	elbow_x, elbow_y, elbow_z = get_second_point(0, 0, 0, shoulder_theta_x, shoulder_theta_y, bicep_length)
 	
-	xs.append(elbow_pos_x)
-	ys.append(elbow_pos_y)
-	zs.append(elbow_pos_z)
+	xs.append(elbow_x)
+	ys.append(elbow_y)
+	zs.append(elbow_z)
 
 
 #	pyplot.scatter(i, y)
