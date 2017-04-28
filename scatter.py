@@ -304,6 +304,8 @@ ax.scatter(xs, ys, zs)
 # First, define a starting "home point" that will be modified by the BerryIMU.
 
 
+def get_second_point(initial_x, initial_y, initial_z, theta_1, theta_2, length):
+	return initial_x + (length * math.cos(theta_1)), initial_y + (length * math.sin(theta_2)), initial_z + (length * math.cos(theta_1) * math.sin(theta_2))
 
 
 pyplot.ion()
@@ -455,22 +457,6 @@ for i in range(0, 100): # change to while true in prod
 	time.sleep(0.03)
 
 
-	shoulder_theta_x = gyroXangle
-	shoulder_theta_y = gyroYangle
-	elbow_theta    = elbow
-	wrist_theta    = wrist
-
-	bicep_length = 10
-	forearm_length = 12
-	elbow_pos_x, elbow_pos_y = bicep_length * math.cos(shoulder_theta_x), bicep_length * math.sin(shoulder_theta_y)
-	elbow_pos_z = bicep_length * math.cos(shoulder_theta_x) * math.cos(shoulder_theta_y)
-	forearm_pos_x = elbow_pos_x + (forearm_length * math.cos(45))
-	forearm_pos_y = elbow_pos_y + (forearm_length * math.sin(45))
-
-	xs = [0, elbow_pos_x, forearm_pos_x]
-	ys = [0, elbow_pos_y, forearm_pos_y]
-	zs = [0, 0          , 0]
-	
 	xs = [0]
 	ys = [0]
 	zs = [0]
@@ -479,17 +465,11 @@ for i in range(0, 100): # change to while true in prod
 	shoulder_theta_y = gyroYangle
 	elbow_theta    = elbow
 	wrist_theta    = wrist
-	elbow_pos_x, elbow_pos_y = bicep_length * math.cos(shoulder_theta_x), bicep_length * math.sin(shoulder_theta_y)
-	elbow_pos_z = bicep_length * math.cos(shoulder_theta_x) * math.cos(shoulder_theta_y)
-	forearm_pos_x = elbow_pos_x + (forearm_length * math.cos(45))
-	forearm_pos_y = elbow_pos_y + (forearm_length * math.sin(45))
+	elbow_x, elbow_y, elbow_z = get_second_point(0, 0, 0, shoulder_theta_x, shoulder_theta_y, bicep_length)
 	
 	xs.append(elbow_pos_x)
-	xs.append(forearm_pos_x)
 	ys.append(elbow_pos_y)
-	ys.append(forearm_pos_y)
-	zs.append(0)
-	zs.append(0)
+	zs.append(elbow_pos_z)
 
 
 #	pyplot.scatter(i, y)
