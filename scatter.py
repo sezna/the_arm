@@ -294,7 +294,7 @@ def circumference_as_points(radius, center_x, center_y, z, sides=20):
 		xs.append(center_x + radius * math.cos ( 360 / angle ))
 		ys.append(center_y + radius * math.sin ( 360 / angle ))
 	return xs, ys
-'''
+
 def make_rounded_oval(max_radius, starting_x = 0, starting_y = 0, ending_x = 10, ending_y = 10, starting_z = 0, ending_z = 10):
 	xs = range(starting_x, ending_x)
 	print(len(xs))
@@ -311,7 +311,7 @@ def make_rounded_oval(max_radius, starting_x = 0, starting_y = 0, ending_x = 10,
 
 xs, ys = make_rounded_oval(100)
 zs = [0] * len(xs)
-'''
+
 xs = [0, 3, 20]
 ys = [0, 13, 20]
 zs = [10, 15, 20]
@@ -472,13 +472,15 @@ for i in range(0, 100): # change to while true in prod
 	time.sleep(0.03)
 
 
-	shoulder_theta = gyroXangle
+	shoulder_theta_x = gyroXangle
+	shoulder_theta_y = gyroYangle
 	elbow_theta    = elbow
 	wrist_theta    = wrist
 
 	bicep_length = 10
 	forearm_length = 12
-	elbow_pos_x, elbow_pos_y = bicep_length * math.cos(shoulder_theta), bicep_length * math.sin(shoulder_theta)
+	elbow_pos_x, elbow_pos_y = bicep_length * math.cos(shoulder_theta_x), bicep_length * math.sin(shoulder_theta_y)
+	elbow_pos_z = bicep_length * math.cos(shoulder_theta_x) * math.cos(shoulder_theta_y)
 	forearm_pos_x = elbow_pos_x + (forearm_length * math.cos(elbow_theta))
 	forearm_pos_y = elbow_pos_y + (forearm_length * math.sin(elbow_theta))
 
@@ -486,7 +488,7 @@ for i in range(0, 100): # change to while true in prod
 	ys = [0, elbow_pos_y, forearm_pos_y]
 	zs = [0, 0          , 0]
 
-	pyplot.scatter(i, y)
+#	pyplot.scatter(i, y)
 	pyplot.plot(xs, ys, zs)
 	pyplot.pause(0.05)
 
