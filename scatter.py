@@ -432,7 +432,7 @@ for i in range(0, 100): # change to while true in prod
 
 
 	if 0:			#Change to '0' to stop showing the angles from the accelerometer
-		print ("\033[1;34;40mACCX Angle %5.2f ACCY Angle %5.2f  \033[0m  " % (AccXangle, AccYangle)),
+		print ("\r\033[1;34;40mACCX Angle %5.2f ACCY Angle %5.2f  \033[0m  " % (AccXangle, AccYangle)),
 
 	if 0:			#Change to '0' to stop  showing the angles from the gyro
 		print ("\033[1;31;40m\tGRYX Angle %5.2f  GYRY Angle %5.2f  GYRZ Angle %5.2f" % (gyroXangle,gyroYangle,gyroZangle)),
@@ -444,7 +444,7 @@ for i in range(0, 100): # change to while true in prod
 		print ("HEADING  %5.2f \33[1;37;40m tiltCompensatedHeading %5.2f" % (heading,tiltCompensatedHeading)),
 
 	if 1:			#Change to '0' to stop  showing the angles from the Kalman filter
-		print ("\033[1;31;40m kalmanX %5.2f  \033[1;35;40m kalmanY %5.2f  " % (kalmanX,kalmanY)),
+		print ("X angle: %5.2f Y angle: %5.2f Heading: %5.2 degrees, elbow angle: %5.2, wrist rotation: %5.2 " % (kalmanX,kalmanY,tiltCompensatedHeading, elbow, wrist)),
 
 	#print a new line
 	print ""   
@@ -452,33 +452,4 @@ for i in range(0, 100): # change to while true in prod
 
 	#slow program down a bit, makes the output more readable
 #	time.sleep(0.03)
-
-
-	xs = [0]
-	ys = [0]
-	zs = [0]
-	
-	bicep_length = .5
-
-
-	shoulder_theta_x = kalmanX 
-	shoulder_theta_y = kalmanY
-	elbow_theta    = elbow
-	wrist_theta    = wrist
-	elbow_x, elbow_y, elbow_z = get_second_point(0, 0, 0, shoulder_theta_x, shoulder_theta_y, bicep_length)
-	
-	
-	xs.append(elbow_x)
-	ys.append(elbow_y)
-	zs.append(elbow_z)
-
-
-	for i, line in enumerate(ax.lines):
-		ax.lines.pop(i)
-#		line.remove()
-#	pyplot.scatter(i, y)
-	ax.set_autoscale_on(False)
-	ax.plot(xs, ys, zs)
-	ax.set_autoscale_on(False)
-	pyplot.pause(0.02)
 
