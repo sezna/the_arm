@@ -473,7 +473,7 @@ for i in range(0, 100): # change to while true in prod
 
 	for i, line in enumerate(ax.lines):
 		ax.lines.pop(i)
-		line.remove()
+#		line.remove()
 #	pyplot.scatter(i, y)
 	ax.plot(xs, ys, zs)
 	pyplot.pause(0.05)
