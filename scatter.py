@@ -466,7 +466,6 @@ for i in range(0, 100): # change to while true in prod
 	elbow_theta    = elbow
 	wrist_theta    = wrist
 	elbow_x, elbow_y, elbow_z = get_second_point(0, 0, 0, shoulder_theta_x, shoulder_theta_y, bicep_length)
-	elbow_y = 0
 	
 	
 	xs.append(elbow_x)
