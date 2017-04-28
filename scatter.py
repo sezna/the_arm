@@ -466,6 +466,7 @@ for i in range(0, 100): # change to while true in prod
 	elbow_theta    = elbow
 	wrist_theta    = wrist
 	elbow_x, elbow_y, elbow_z = get_second_point(0, 0, 0, shoulder_theta_x, shoulder_theta_y, bicep_length)
+	elbow_y = 0
 	
 	
 	xs.append(elbow_x)
@@ -477,6 +478,8 @@ for i in range(0, 100): # change to while true in prod
 		ax.lines.pop(i)
 #		line.remove()
 #	pyplot.scatter(i, y)
+	ax.set_autoscale_on(False)
 	ax.plot(xs, ys, zs)
+	ax.set_autoscale_on(False)
 	pyplot.pause(0.02)
 
