@@ -299,7 +299,9 @@ def circumference_as_points(radius, center_x, center_y, z, sides=20):
 # First, define a starting "home point" that will be modified by the BerryIMU.
 
 
-def get_second_point(initial_x, initial_y, initial_z, theta_1, theta_2, length):
+def get_second_point(initial_x, initial_y, initial_z, theta_x, theta_y, length):
+	theta_1 = math.radians(theta_x)
+	theta_2 = math.radians(theta_y)
 	return initial_x + (length * math.cos(theta_1)), initial_y + (length * math.sin(theta_2)), initial_z 
 
 
