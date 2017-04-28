@@ -464,12 +464,26 @@ for i in range(0, 100): # change to while true in prod
 	forearm_length = 12
 	elbow_pos_x, elbow_pos_y = bicep_length * math.cos(shoulder_theta_x), bicep_length * math.sin(shoulder_theta_y)
 	elbow_pos_z = bicep_length * math.cos(shoulder_theta_x) * math.cos(shoulder_theta_y)
-	forearm_pos_x = elbow_pos_x + (forearm_length * math.cos(elbow_theta))
-	forearm_pos_y = elbow_pos_y + (forearm_length * math.sin(elbow_theta))
+	forearm_pos_x = elbow_pos_x + (forearm_length * math.cos(45))
+	forearm_pos_y = elbow_pos_y + (forearm_length * math.sin(45))
 
 	xs = [0, elbow_pos_x, forearm_pos_x]
 	ys = [0, elbow_pos_y, forearm_pos_y]
 	zs = [0, 0          , 0]
+	
+	
+	shoulder_theta_x = AccXangle
+	shoulder_theta_y = AccYangle
+	elbow_theta    = elbow
+	wrist_theta    = wrist
+	elbow_pos_x, elbow_pos_y = bicep_length * math.cos(shoulder_theta_x), bicep_length * math.sin(shoulder_theta_y)
+	elbow_pos_z = bicep_length * math.cos(shoulder_theta_x) * math.cos(shoulder_theta_y)
+	forearm_pos_x = elbow_pos_x + (forearm_length * math.cos(45))
+	forearm_pos_y = elbow_pos_y + (forearm_length * math.sin(45))
+	
+	xs.append(elbow_pos_x, forearm_pos_x)
+	ys.append(elbow_pos_y, forearm_pos_y)
+
 
 #	pyplot.scatter(i, y)
 	pyplot.plot(xs, ys, zs)
