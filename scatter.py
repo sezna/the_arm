@@ -432,7 +432,7 @@ for i in range(0, 100): # change to while true in prod
 
 
 
-	if 0:			#Change to '0' to stop showing the angles from the accelerometer
+	if 1:			#Change to '0' to stop showing the angles from the accelerometer
 		print ("\033[1;34;40mACCX Angle %5.2f ACCY Angle %5.2f  \033[0m  " % (AccXangle, AccYangle)),
 
 	if 1:			#Change to '0' to stop  showing the angles from the gyro
@@ -471,9 +471,9 @@ for i in range(0, 100): # change to while true in prod
 	ys = [0, elbow_pos_y, forearm_pos_y]
 	zs = [0, 0          , 0]
 	
-	xs = []
-	ys = []
-	zs = []
+	xs = [0]
+	ys = [0]
+	zs = [0]
 	
 	shoulder_theta_x = AccXangle
 	shoulder_theta_y = AccYangle
