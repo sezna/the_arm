@@ -471,6 +471,9 @@ for i in range(0, 100): # change to while true in prod
 	ys = [0, elbow_pos_y, forearm_pos_y]
 	zs = [0, 0          , 0]
 	
+	xs = []
+	ys = []
+	zs = []
 	
 	shoulder_theta_x = AccXangle
 	shoulder_theta_y = AccYangle
@@ -485,6 +488,8 @@ for i in range(0, 100): # change to while true in prod
 	xs.append(forearm_pos_x)
 	ys.append(elbow_pos_y)
 	ys.append(forearm_pos_y)
+	zs.append(0)
+	zs.append(0)
 
 
 #	pyplot.scatter(i, y)
