@@ -307,7 +307,7 @@ def get_second_point(initial_x, initial_y, initial_z, theta_x, theta_y, length):
 
 pyplot.ion()
 # main loop
-for i in range(0, 100): # change to while true in prod
+while True: # change to while true in prod
 	# read ADC values
 	wrist = adc.read_adc(1, gain=GAIN)
 	elbow = adc.read_adc(3, gain=GAIN)
@@ -444,7 +444,7 @@ for i in range(0, 100): # change to while true in prod
 		print ("HEADING  %5.2f \33[1;37;40m tiltCompensatedHeading %5.2f" % (heading,tiltCompensatedHeading)),
 
 	if 1:			#Change to '0' to stop  showing the angles from the Kalman filter
-		sys.stdout.write("\rX angle: %5.2f Y angle: %5.2f Heading: %5.2f degrees, elbow angle: %5.2f, wrist rotation: %5.2f \r" % (kalmanX,kalmanY,tiltCompensatedHeading,elbow,wrist)),
+		sys.stdout.write("\rX angle: %5.2f Y angle: %5.2f Heading: %5.2f degrees, elbow angle: %5.2f, wrist rotation: %5.2f \r" % (kalmanX,kalmanY,tiltCompensatedHeading,elbow * (360.0 / 27000.0),wrist * (360.0 / 8000.0)),
 		sys.stdout.flush()
 
 	#print a new line
