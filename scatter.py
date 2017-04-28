@@ -461,6 +461,9 @@ for i in range(0, 100): # change to while true in prod
 	ys = [0]
 	zs = [0]
 	
+	bicep_length = 10
+
+
 	shoulder_theta_x = gyroXangle 
 	shoulder_theta_y = gyroYangle
 	elbow_theta    = elbow
