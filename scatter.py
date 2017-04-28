@@ -295,11 +295,6 @@ def circumference_as_points(radius, center_x, center_y, z, sides=20):
 		ys.append(center_y + radius * math.sin ( 360 / angle ))
 	return xs, ys
 
-xs = [0, 3, 20]
-ys = [0, 13, 20]
-zs = [10, 15, 20]
-ax.scatter(xs, ys, zs)
-
 
 # First, define a starting "home point" that will be modified by the BerryIMU.
 
@@ -476,6 +471,6 @@ for i in range(0, 100): # change to while true in prod
 
 
 #	pyplot.scatter(i, y)
-	pyplot.plot(xs, ys, zs)
+	ax.plot(xs, ys, zs)
 	pyplot.pause(0.05)
 
