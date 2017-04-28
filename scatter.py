@@ -300,7 +300,7 @@ def circumference_as_points(radius, center_x, center_y, z, sides=20):
 
 
 def get_second_point(initial_x, initial_y, initial_z, theta_1, theta_2, length):
-	return initial_x + (length * math.cos(theta_1)), initial_y + (length * math.sin(theta_2)), initial_z + (length * math.cos(theta_1) * math.sin(theta_2))
+	return initial_x + (length * math.cos(theta_1)), initial_y + (length * math.sin(theta_2)), initial_z 
 
 
 pyplot.ion()
@@ -459,17 +459,21 @@ for i in range(0, 100): # change to while true in prod
 	bicep_length = 10
 
 
-	shoulder_theta_x = gyroXangle 
-	shoulder_theta_y = gyroYangle
+	shoulder_theta_x = kalmanX 
+	shoulder_theta_y = kalmanY
 	elbow_theta    = elbow
 	wrist_theta    = wrist
 	elbow_x, elbow_y, elbow_z = get_second_point(0, 0, 0, shoulder_theta_x, shoulder_theta_y, bicep_length)
+	
 	
 	xs.append(elbow_x)
 	ys.append(elbow_y)
 	zs.append(elbow_z)
 
 
+	for i, line in enumerate(ax.lines):
+		ax.lines.pop(i)
+		line.remove()
 #	pyplot.scatter(i, y)
 	ax.plot(xs, ys, zs)
 	pyplot.pause(0.05)
