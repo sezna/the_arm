@@ -294,22 +294,6 @@ def circumference_as_points(radius, center_x, center_y, z, sides=20):
 		xs.append(center_x + radius * math.cos ( 360 / angle ))
 		ys.append(center_y + radius * math.sin ( 360 / angle ))
 	return xs, ys
-
-def make_rounded_oval(max_radius, starting_x = 0, starting_y = 0, ending_x = 10, ending_y = 10, starting_z = 0, ending_z = 10):
-	xs = range(starting_x, ending_x)
-	print(len(xs))
-	ys = range(starting_y, ending_y, len(range(starting_y, ending_y)) / len(xs))
-	zs = range(starting_z, ending_z, len(range(starting_z, ending_z)) / len(xs))
-	radii = range(1, max_radius, len(range(1, max_radius)) / len(xs))
-	to_return = []
-	assert(len(xs) == len(ys))
-	assert(len(ys) == len(radii))
-	for i in range(0, len(xs)):
-		to_return.append(circumference_as_points(radii[i], xs[i], ys[i], zs[i]))
-
-	return to_return
-
-xs, ys = make_rounded_oval(100)
 zs = [0] * len(xs)
 
 xs = [0, 3, 20]
